@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 import { Tag } from '@/types/note';
-import { CreateNoteData } from '../api.js';
+import { CreateNoteData } from '../api';
 
 interface DraftNote {
   title: string;
