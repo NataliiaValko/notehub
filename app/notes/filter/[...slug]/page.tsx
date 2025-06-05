@@ -1,7 +1,7 @@
 import { fetchNotes } from '@/lib/api';
 
 import NotesClient from './Notes.client';
-import { Tag } from '@/types/note.js';
+import { Tag } from '@/types/note';
 import { Metadata } from 'next';
 
 type generateMetadataProps = {
