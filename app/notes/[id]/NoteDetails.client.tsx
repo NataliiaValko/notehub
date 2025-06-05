@@ -37,6 +37,7 @@ const NoteDetailsClient = () => {
             <button className={css.backBtn} onClick={handleClickBack}>
               Back
             </button>
+
             <div className={css.header}>
               <h2>{note.title}</h2>
             </div>

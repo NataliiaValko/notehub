@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Note } from '@/types/note';
+import { Note, Tag } from '@/types/note';
 
 axios.defaults.baseURL = 'https://notehub-public.goit.study/api';
 
@@ -28,13 +28,13 @@ export const fetchNotes = async ({ searchText, page, tag }: FetchNotesProps) => 
   return response.data;
 };
 
-interface NewNoteContent {
+export interface CreateNoteData {
   title: string;
-  content?: string;
-  tag: string;
+  content: string;
+  tag: Tag;
 }
 
-export const createNote = async (newNote: NewNoteContent) => {
+export const createNote = async (newNote: CreateNoteData) => {
   const response = await axios.post<Note>('/notes', newNote);
   return response.data;
 };
