@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   background: #363638;
-  border: 1px solid #ff6d00;
+  border-bottom: 1px solid #ff6d00;
 }
 
 .headerContainer {
