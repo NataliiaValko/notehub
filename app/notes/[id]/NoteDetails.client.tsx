@@ -35,15 +35,20 @@ const NoteDetailsClient = () => {
         <div className={css.container}>
           <div className={css.item}>
             <button className={css.backBtn} onClick={handleClickBack}>
-              Back
+              ← Back
             </button>
 
-            <div className={css.header}>
-              <h2>{note.title}</h2>
+            <div className={css.note}>
+              <div className={css.wrapper}>
+                <p className={css.tag}>{note.tag}</p>
+                <div className={css.header}>
+                  <h2>{note.title}</h2>
+                </div>
+
+                <p className={css.content}>{note.content}</p>
+              </div>
+              <p className={css.date}>{note.createdAt}</p>
             </div>
-            <p className={css.tag}>{note.tag}</p>
-            <p className={css.content}>{note.content}</p>
-            <p className={css.date}>{note.createdAt}</p>
           </div>
         </div>
       )}

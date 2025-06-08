@@ -7,9 +7,9 @@ type LayoutNotesProps = {
 
 export default function LayoutNotes({ children, sidebar }: LayoutNotesProps) {
   return (
-    <section className={css.container}>
+    <main className={css.container}>
       <aside className={css.sidebar}>{sidebar}</aside>
       <div className={css.notesWrapper}>{children}</div>
-    </section>
+    </main>
   );
 }

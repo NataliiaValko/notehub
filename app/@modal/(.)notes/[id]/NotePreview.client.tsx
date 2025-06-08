@@ -33,19 +33,19 @@ export default function NotePreviewClient({ id }: NotePreviewClientProps) {
 
   return (
     <Modal onClose={handleClose}>
-      <div className={css.container}>
-        <div className={css.item}>
-          <button className={css.backBtn} onClick={handleClose}>
-            Back
-          </button>
-
+      <button className={css.backBtn} onClick={handleClose}>
+        ← Back
+      </button>
+      <div className={css.note}>
+        <div className={css.wrapper}>
+          <p className={css.tag}>{note.tag}</p>
           <div className={css.header}>
             <h2>{note.title}</h2>
           </div>
-          <p className={css.tag}>{note.tag}</p>
+
           <p className={css.content}>{note.content}</p>
-          <p className={css.date}>{note.createdAt}</p>
         </div>
+        <p className={css.date}>{note.createdAt}</p>
       </div>
     </Modal>
   );

@@ -42,46 +42,49 @@ export default function NoteForm() {
 
   return (
     <form className={css.form} action={handleSubmit}>
-      <div className={css.formGroup}>
-        <label htmlFor="title">Title</label>
-        <input
-          id="title"
-          type="text"
-          name="title"
-          defaultValue={draft?.title}
-          onChange={handleChange}
-          className={css.input}
-          required
-        />
-      </div>
+      <div className={css.wrapper}>
+        <div className={css.formGroup}>
+          <label htmlFor="title">Title</label>
+          <input
+            id="title"
+            type="text"
+            name="title"
+            defaultValue={draft?.title}
+            onChange={handleChange}
+            className={css.input}
+            required
+          />
+        </div>
 
-      <div className={css.formGroup}>
-        <label htmlFor="content">Content</label>
-        <textarea
-          id="content"
-          rows={8}
-          name="content"
-          defaultValue={draft?.content}
-          onChange={handleChange}
-          className={css.textarea}
-        />
-      </div>
+        <div className={css.formGroup}>
+          <label htmlFor="content">Content</label>
+          <textarea
+            id="content"
+            rows={8}
+            name="content"
+            defaultValue={draft?.content}
+            onChange={handleChange}
+            className={css.textarea}
+          />
+        </div>
 
-      <div className={css.formGroup}>
-        <label htmlFor="tag">Tag</label>
-        <select
-          id="tag"
-          name="tag"
-          defaultValue={draft?.tag || 'Todo'}
-          onChange={handleChange}
-          className={css.select}
-        >
-          <option value="Todo">Todo</option>
-          <option value="Work">Work</option>
-          <option value="Personal">Personal</option>
-          <option value="Meeting">Meeting</option>
-          <option value="Shopping">Shopping</option>
-        </select>
+        <div className={`${css.formGroup} ${css.selectGroup}`}>
+          <label htmlFor="tag">Tag</label>
+          <span className={css.arrow}></span>
+          <select
+            id="tag"
+            name="tag"
+            defaultValue={draft?.tag || 'Todo'}
+            onChange={handleChange}
+            className={css.select}
+          >
+            <option value="Todo">Todo</option>
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Meeting">Meeting</option>
+            <option value="Shopping">Shopping</option>
+          </select>
+        </div>
       </div>
 
       <div className={css.actions}>

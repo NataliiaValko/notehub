@@ -45,8 +45,8 @@ export default function NotesClient({ initialData, tag }: NotesClientProps) {
 
   return (
     <div className={css.app}>
-      <main>
-        <section>
+      <main className={css.main}>
+        <section className={css.notesSection}>
           <header className={css.toolbar}>
             <SearchBox value={searchQuery} onSearch={changeSearchQuery} />
             {totalPages > 1 && (
