@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: generateMetadataProps): Promi
       url: `https://notehub-tukd.vercel.app/notes/filter/${tag}`,
       images: [
         {
-          url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+          url: '/Cover.png',
           width: 1200,
           height: 630,
           alt: `Notes - ${tag === 'All' ? 'All Tags' : tag} | NoteHub`,

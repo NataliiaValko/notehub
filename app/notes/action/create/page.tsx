@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://notehub-tukd.vercel.app/notes/action/create',
     images: [
       {
-        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+        url: '/Cover.png',
         width: 1200,
         height: 630,
         alt: 'Create New Note | NoteHub',

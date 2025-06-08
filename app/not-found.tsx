@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     url: `https://notehub-tukd.vercel.app/`,
     images: [
       {
-        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+        url: '/Cover.png',
         width: 1200,
         height: 630,
         alt: '404 - Page not found | NoteHub',

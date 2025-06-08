@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: NoteDetailsProps): Promise<Me
       url: `https://notehub-tukd.vercel.app/notes/${id}`,
       images: [
         {
-          url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+          url: '/Cover.png',
           width: 1200,
           height: 630,
           alt: `${note.title} | NoteHub`,
