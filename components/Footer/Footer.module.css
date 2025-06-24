@@ -1,7 +1,7 @@
 /* components/Footer.module.css */
 
 .footer {
-  border-top: 1px solid #ff6d00;
+  border-top: 1px solid #368a01;
   background: #363638;
   display: flex;
   padding: 20px 0px;
@@ -37,7 +37,7 @@
   line-height: normal;
 }
 .footer a {
-  color: #ff6d00;
+  color: #368a01;
   font-weight: 600;
   text-decoration: none;
 }

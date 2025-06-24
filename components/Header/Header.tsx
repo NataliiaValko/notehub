@@ -1,14 +1,14 @@
 import Link from 'next/link';
 
 import css from './Header.module.css';
-import TagsMenu from '../TagsMenu/TagsMenu';
+import TagsMenu from '../UsersMenu/UsersMenu';
 
 export default function Header() {
   return (
     <header className={css.header}>
       <div className={css.headerContainer}>
         <Link href="/" aria-label="Home" className={css.headerLink}>
-          NoteHub
+          Postly
         </Link>
         <nav aria-label="Main Navigation">
           <ul className={css.navigation}>

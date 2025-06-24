@@ -2,49 +2,15 @@ import type { Metadata } from 'next';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
-import { Knewave, Open_Sans } from 'next/font/google';
 
 import 'modern-normalize';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'NoteHub',
-  description: 'A simple and efficient app for creating and organizing your notes.',
-  openGraph: {
-    title: 'NoteHub',
-    description: 'A simple and efficient app for creating and organizing your notes.',
-    url: `https://notehub-tukd.vercel.app/`,
-    images: [
-      {
-        url: '/Cover.png',
-        width: 1200,
-        height: 630,
-        alt: 'NoteHub - A simple and efficient app for creating and organizing your notes.',
-      },
-    ],
-  },
+  title: 'Postly - Your Personal Blogging Platform',
+  description:
+    'A simple space to write, post, and connect. Easily create and manage your blog posts with Postly.',
 };
-
-// const roboto = Roboto({
-//   subsets: ['latin'],
-//   weight: ['500', '600', '700'],
-//   variable: '--font-roboto',
-//   display: 'swap',
-// });
-
-const knewave = Knewave({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-knewave',
-  display: 'swap',
-});
-
-const openSans = Open_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-open-sans',
-  display: 'swap',
-});
 
 export default function RootLayout({
   children,
@@ -55,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${knewave.variable} ${openSans.variable} body`}>
+      <body>
         <TanStackProvider>
           <Header />
           {children}

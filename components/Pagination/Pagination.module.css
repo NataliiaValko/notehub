@@ -27,16 +27,16 @@
 
 .pagination li:hover {
   border-radius: 8px;
-  background-color: #ff6d00;
+  background-color: #368a01;
 }
 
 .pagination li.active:hover {
   border-radius: 8px;
-  background-color: #ff6d00;
+  background-color: #368a01;
 }
 
 .active {
-  background-color: #ff6d00;
+  background-color: #368a01;
 }
 
 .active a {
