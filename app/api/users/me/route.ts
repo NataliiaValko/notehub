@@ -19,14 +19,9 @@ export async function GET() {
 }
 
 export async function PATCH(request: Request) {
-  console.log(1);
-
   try {
     const cookieStore = await cookies();
     const body = await request.json();
-
-    console.log('PATCH /users/me body:', body);
-    console.log('Cookies:', cookieStore.toString());
 
     const { data } = await api.patch('/users/me', body, {
       headers: {

@@ -18,7 +18,6 @@ export default function EditProfileClient() {
 
   useEffect(() => {
     if (user) {
-      console.log(' user:', user);
       setNewUsername(user.username || '');
       return;
     }
