@@ -2,13 +2,13 @@
 
 import { useQuery } from '@tanstack/react-query';
 import Modal from '@/components/Modal/Modal';
-import { fetchNoteById } from '@/lib/api';
+import { fetchNoteById } from '@/lib/api/clientApi';
 import { useRouter } from 'next/navigation';
 
 import css from './NotePreview.module.css';
 
 interface NotePreviewClientProps {
-  id: number;
+  id: string;
 }
 
 export default function NotePreviewClient({ id }: NotePreviewClientProps) {
@@ -33,19 +33,19 @@ export default function NotePreviewClient({ id }: NotePreviewClientProps) {
 
   return (
     <Modal onClose={handleClose}>
-      <button className={css.backBtn} onClick={handleClose}>
-        ← Back
-      </button>
-      <div className={css.note}>
-        <div className={css.wrapper}>
-          <p className={css.tag}>{note.tag}</p>
+      <div className={css.container}>
+        <div className={css.item}>
+          <button className={css.backBtn} onClick={handleClose}>
+            Back
+          </button>
+
           <div className={css.header}>
             <h2>{note.title}</h2>
           </div>
-
+          <p className={css.tag}>{note.tag}</p>
           <p className={css.content}>{note.content}</p>
+          <p className={css.date}>{note.createdAt}</p>
         </div>
-        <p className={css.date}>{note.createdAt}</p>
       </div>
     </Modal>
   );

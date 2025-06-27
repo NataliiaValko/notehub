@@ -2,7 +2,6 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 import { Tag } from '@/types/note';
-import { CreateNoteData } from '../api';
 
 interface DraftNote {
   title: string;
@@ -16,7 +15,7 @@ type NoteDraftStore = {
   clearDraft: () => void;
 };
 
-const initialDraft: CreateNoteData = {
+const initialDraft: DraftNote = {
   title: '',
   content: '',
   tag: 'Todo',
