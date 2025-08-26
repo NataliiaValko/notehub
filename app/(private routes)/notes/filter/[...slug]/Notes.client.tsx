@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce';
 import NoteList from '@/components/NoteList/NoteList';
@@ -11,11 +11,13 @@ import Link from 'next/link';
 
 import css from './page.module.css';
 import { useParams } from 'next/navigation';
-import { Tag } from '@/types/note';
+import { Note, Tag } from '@/types/note';
 
 export default function NotesClient() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
+  const [totalPages, setTotalPages] = useState(0);
+  const [notes, setNotes] = useState([] as Note[]);
 
   const { slug } = useParams<{ slug: string }>();
   const tag: Tag | string = slug[0];
@@ -37,8 +39,16 @@ export default function NotesClient() {
     setSearchQuery(newQuery);
   }, 300);
 
-  const totalPages = data?.totalPages ?? 0;
-  const notes = data?.notes ?? [];
+  useEffect(() => {
+    if (!data) return;
+
+    setTotalPages(data?.totalPages ?? 0);
+    setNotes(data?.notes);
+
+    if ((data.notes?.length ?? 0) === 0 && currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  }, [data, currentPage]);
 
   return (
     <div className={css.app}>
