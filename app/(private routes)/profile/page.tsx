@@ -1,9 +1,8 @@
 import { getMe } from '@/lib/api/serverApi';
-
-import css from './page.module.css';
-import Image from 'next/image';
-import Link from 'next/link';
 import { Metadata } from 'next';
+import css from './page.module.css';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Profile | NoteHub',

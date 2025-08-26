@@ -4,51 +4,51 @@ import { useEffect, useState, ChangeEvent, FormEvent } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import css from './EditProfile.module.css';
-import { checkSession, getMe, updateMe } from '@/lib/api/clientApi';
+import { getMe, updateMe } from '@/lib/api/clientApi';
 import { useAuthStore } from '@/lib/store/authStore';
 
 export default function EditProfileClient() {
   const router = useRouter();
-
-  const user = useAuthStore((state) => state.user);
-
+  const [username, setUsername] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userImage, setUserImage] = useState(
+    'https://ac.goit.global/fullstack/react/default-avatar.jpg'
+  );
   const setUser = useAuthStore((state) => state.setUser);
-  const username = user?.username || '';
 
-  const [newUsername, setNewUsername] = useState('');
+  // const [newUsername, setNewUsername] = useState('');
 
   useEffect(() => {
-    if (!username) {
-      return;
-    }
-    setNewUsername(username);
-
     const fetchUser = async () => {
       try {
-        await checkSession();
+        // await checkSession();
         const fetchedUser = await getMe();
         if (fetchedUser) {
+          setUsername(fetchedUser.username);
           setUser(fetchedUser);
-          setNewUsername(fetchedUser.username || '');
+          setUserEmail(fetchedUser.email);
+          setUserImage(
+            fetchedUser.avatar ?? 'https://ac.goit.global/fullstack/react/default-avatar.jpg'
+          );
         }
       } catch {}
     };
 
     fetchUser();
-  }, [username, setUser]);
+  }, [setUser]);
 
   const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setNewUsername(e.target.value);
+    setUsername(e.target.value);
   };
 
   const handleSave = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      await updateMe({ username: newUsername });
-      if (user) {
-        setUser({ ...user, username: newUsername });
-      }
+      const user = await updateMe({ username });
+      // if (user) {
+      setUser({ ...user });
+      // }
       router.push('/profile');
     } catch (error) {
       console.error(error);
@@ -59,20 +59,14 @@ export default function EditProfileClient() {
     router.back();
   };
 
-  if (!user) return null;
+  // if (!user) return null;
 
   return (
     <main className={css.mainContent}>
       <div className={css.profileCard}>
         <h1 className={css.formTitle}>Edit Profile</h1>
 
-        <Image
-          src={user.avatar}
-          alt="User Avatar"
-          width={120}
-          height={120}
-          className={css.avatar}
-        />
+        <Image src={userImage} alt="User Avatar" width={120} height={120} className={css.avatar} />
 
         <form onSubmit={handleSave} className={css.profileInfo}>
           <div className={css.usernameWrapper}>
@@ -80,13 +74,13 @@ export default function EditProfileClient() {
             <input
               id="username"
               type="text"
-              value={newUsername}
+              value={username}
               onChange={handleUsernameChange}
               className={css.input}
             />
           </div>
 
-          <p>Email: {user.email}</p>
+          <p>Email: {userEmail}</p>
 
           <div className={css.actions}>
             <button type="submit" className={css.saveButton}>

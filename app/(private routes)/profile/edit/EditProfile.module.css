@@ -13,7 +13,7 @@
   width: 100%;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(2.5px);
   padding: 32px;
   text-align: left;
 }

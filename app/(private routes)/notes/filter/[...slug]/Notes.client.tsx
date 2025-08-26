@@ -11,20 +11,23 @@ import Link from 'next/link';
 
 import css from './page.module.css';
 import { useParams } from 'next/navigation';
+import { Tag } from '@/types/note';
 
 export default function NotesClient() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
 
   const { slug } = useParams<{ slug: string }>();
-  const tag = slug[0];
+  const tag: Tag | string = slug[0];
+  const parsedTag = (tag && tag !== 'All' && tag) || '';
+
   const { data, isLoading } = useQuery({
     queryKey: ['notes', { search: searchQuery, page: currentPage, tag }],
     queryFn: () =>
       fetchNotes({
         search: searchQuery,
         page: currentPage,
-        ...(tag !== 'All' && { tag }),
+        tag: parsedTag,
       }),
     refetchOnMount: false,
   });
@@ -39,7 +42,7 @@ export default function NotesClient() {
 
   return (
     <div className={css.app}>
-      <main>
+      <main className={css.main}>
         <section>
           <header className={css.toolbar}>
             <SearchBox onSearch={changeSearchQuery} />

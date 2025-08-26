@@ -25,7 +25,7 @@ const NoteDetailsClient = () => {
     router.back();
   };
 
-  if (isLoading) return <p>Loading, please wait...</p>;
+  if (isLoading) return <p>Loading...</p>;
   if (error || !note) return <p>Something went wrong.</p>;
 
   return (

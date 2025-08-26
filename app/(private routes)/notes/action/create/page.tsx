@@ -12,10 +12,10 @@ export const metadata: Metadata = {
     title: 'Create New Note | NoteHub',
     description:
       'Quickly create a new note in NoteHub — the efficient app for organizing your thoughts and ideas.',
-    url: 'https://notehub.com/notes/action/create',
+    url: 'https://notehub-tukd.vercel.app',
     images: [
       {
-        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+        url: '/Cover.png',
         width: 1200,
         height: 630,
         alt: 'Create New Note | NoteHub',
