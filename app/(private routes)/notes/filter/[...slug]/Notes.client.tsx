@@ -46,7 +46,7 @@ export default function NotesClient() {
         <section>
           <header className={css.toolbar}>
             <SearchBox onSearch={changeSearchQuery} />
-            {totalPages > 1 && (
+            {totalPages > 0 && (
               <Pagination
                 totalPages={totalPages}
                 currentPage={currentPage}
