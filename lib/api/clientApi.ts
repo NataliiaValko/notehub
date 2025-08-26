@@ -39,7 +39,7 @@ export const login = async (data: AuthRequest) => {
   return res.data;
 };
 
-export const register = async (data: AuthRequest): Promise<User> => {
+export const register = async (data: AuthRequest) => {
   const res = await nextServer.post<User>('/auth/register', data);
   return res.data;
 };

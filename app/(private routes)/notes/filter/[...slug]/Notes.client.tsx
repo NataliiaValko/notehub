@@ -1,34 +1,32 @@
 'use client';
 
 import { useState } from 'react';
-import { useQuery, keepPreviousData } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce';
 import NoteList from '@/components/NoteList/NoteList';
 import SearchBox from '@/components/SearchBox/SearchBox';
 import Pagination from '@/components/Pagination/Pagination';
 import { fetchNotes } from '@/lib/api/clientApi';
 import Link from 'next/link';
-import { Tag } from '@/types/note';
 
 import css from './page.module.css';
+import { useParams } from 'next/navigation';
 
-interface NotesClientProps {
-  tag: Tag | string;
-}
-
-export default function NotesClient({ tag }: NotesClientProps) {
+export default function NotesClient() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const { data } = useQuery({
-    queryKey: ['notes', searchQuery, currentPage, tag],
+  const { slug } = useParams<{ slug: string }>();
+  const tag = slug[0];
+  const { data, isLoading } = useQuery({
+    queryKey: ['notes', { search: searchQuery, page: currentPage, tag }],
     queryFn: () =>
       fetchNotes({
         search: searchQuery,
         page: currentPage,
         ...(tag !== 'All' && { tag }),
       }),
-    placeholderData: keepPreviousData,
+    refetchOnMount: false,
   });
 
   const changeSearchQuery = useDebouncedCallback((newQuery: string) => {
@@ -58,7 +56,13 @@ export default function NotesClient({ tag }: NotesClientProps) {
             </Link>
           </header>
 
-          {notes.length > 0 && <NoteList notes={notes} />}
+          {isLoading ? (
+            <p className={css.text}>Loading ...</p>
+          ) : notes.length > 0 ? (
+            <NoteList notes={notes} />
+          ) : (
+            <p className={css.text}>Nothing here yet. Create your first note!</p>
+          )}
         </section>
       </main>
     </div>

@@ -1,0 +1,127 @@
+/* page.module.css */
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.profileCard {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(25px);
+  padding: 32px;
+  text-align: left;
+}
+
+.formTitle {
+  font-family: 'Open Sans';
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 24px auto;
+  border: 2px solid #fff;
+  width: 120px;
+  height: 120px;
+}
+
+.profileInfo {
+  font-size: 16px;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.usernameWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.usernameWrapper label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #fff;
+  font-family: 'Open Sans';
+}
+
+.input {
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1.5px solid #fff;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #fff;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: #ff6d00;
+  outline: none;
+}
+
+.profileInfo p {
+  margin: 0;
+  font-weight: 600;
+  color: #fff;
+}
+
+.saveButton {
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Open Sans';
+  background-color: #ff6d00;
+  color: #fff;
+  border: 1px solid #ff6d00;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border 0.2s ease;
+  align-self: stretch;
+  text-align: center;
+}
+
+.saveButton:hover {
+  border: 1px solid #fff;
+}
+
+.cancelButton {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border 0.2s ease, color 0.2s ease;
+}
+
+.cancelButton:hover {
+  border: 1px solid #ff6d00;
+  color: #ff6d00;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: flex-end;
+}

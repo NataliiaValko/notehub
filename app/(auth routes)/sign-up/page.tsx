@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 import css from './SignUp.module.css';
 
-// export const dynamic = 'force-static';
+export const dynamic = 'force-static';
 
 export default function SignUp() {
   const router = useRouter();
@@ -32,26 +32,28 @@ export default function SignUp() {
   };
 
   return (
-    <>
-      <h1 className={css.formTitle}>Sign up</h1>
-      <form action={handleSubmit} className={css.form}>
-        <div className={css.formGroup}>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" required className={css.input} />
-        </div>
+    <main className={css.mainContent}>
+      <div>
+        <h1 className={css.formTitle}>Sign up</h1>
+        <form action={handleSubmit} className={css.form}>
+          <div className={css.formGroup}>
+            <label htmlFor="email">Email</label>
+            <input type="email" name="email" id="email" required className={css.input} />
+          </div>
 
-        <div className={css.formGroup}>
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" required className={css.input} />
-        </div>
+          <div className={css.formGroup}>
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" id="password" required className={css.input} />
+          </div>
 
-        <div className={css.actions}>
-          <button type="submit" className={css.submitButton}>
-            Register
-          </button>
-        </div>
-      </form>
-      {error && <p>{error}</p>}
-    </>
+          <div className={css.actions}>
+            <button type="submit" className={css.submitButton}>
+              Register
+            </button>
+          </div>
+        </form>
+        {error && <p>{error}</p>}
+      </div>
+    </main>
   );
 }

@@ -11,10 +11,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Profile | NoteHub',
     description: 'View your profile information and manage your account on NoteHub.',
-    url: `https://react-v3-hw-solutions.vercel.app/profile`,
+    url: `https://notehub-tukd.vercel.app/`,
     images: [
       {
-        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+        url: '/Cover.png',
         width: 1200,
         height: 630,
         alt: 'NoteHub - Manage your profile and account settings.',

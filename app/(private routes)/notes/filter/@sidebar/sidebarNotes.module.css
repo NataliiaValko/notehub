@@ -1,23 +1,18 @@
-.menuList {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
 .menuItem {
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
 
 .menuLink {
-  text-decoration: none;
-  color: white;
-  font-size: 16px;
-  display: block;
-  padding: 8px 16px;
-  transition: background-color 0.3s ease;
+  display: flex;
+  padding: 12px 80px 12px 40px;
+  color: #fff;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .menuLink:hover {
-  background-color: #444;
-  color: #ddd;
+  background-color: #ff6d00;
 }

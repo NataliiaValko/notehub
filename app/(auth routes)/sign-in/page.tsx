@@ -30,27 +30,29 @@ export default function SignIn() {
   };
 
   return (
-    <>
-      <h1 className={css.formTitle}>Sign in</h1>
-      <form action={handleSubmit} className={css.form}>
-        <div className={css.formGroup}>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" required className={css.input} />
-        </div>
+    <main className={css.mainContent}>
+      <div>
+        <h1 className={css.formTitle}>Sign in</h1>
+        <form action={handleSubmit} className={css.form}>
+          <div className={css.formGroup}>
+            <label htmlFor="email">Email</label>
+            <input type="email" name="email" id="email" required className={css.input} />
+          </div>
 
-        <div className={css.formGroup}>
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" required className={css.input} />
-        </div>
+          <div className={css.formGroup}>
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" id="password" required className={css.input} />
+          </div>
 
-        <div className={css.actions}>
-          <button type="submit" className={css.submitButton}>
-            Log in
-          </button>
-        </div>
+          <div className={css.actions}>
+            <button type="submit" className={css.submitButton}>
+              Login
+            </button>
+          </div>
 
-        {error && <p className={css.error}>{error}</p>}
-      </form>
-    </>
+          {error && <p className={css.error}>{error}</p>}
+        </form>
+      </div>
+    </main>
   );
 }

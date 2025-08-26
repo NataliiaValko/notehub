@@ -21,7 +21,7 @@ export default function AuthNavigation() {
   return isAuthenticated ? (
     <>
       <li className={css.navigationItem}>
-        <Link href="/profile" prefetch={false} className={css.navigationLink}>
+        <Link href="/profile" className={css.navigationLink}>
           Profile
         </Link>
       </li>
@@ -36,12 +36,12 @@ export default function AuthNavigation() {
   ) : (
     <>
       <li className={css.navigationItem}>
-        <Link href="/sign-in" prefetch={false} className={css.navigationLink}>
-          Login
+        <Link href="/sign-in" className={css.navigationLink}>
+          Sign in
         </Link>
       </li>
       <li className={css.navigationItem}>
-        <Link href="/sign-up" prefetch={false} className={css.navigationLink}>
+        <Link href="/sign-up" className={css.navigationLink}>
           Sign up
         </Link>
       </li>

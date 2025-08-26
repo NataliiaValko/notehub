@@ -1,18 +1,18 @@
 .container {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  flex: 1;
 }
 
 .sidebar {
-  width: 250px;
-  background-color: #2c2c2c;
-  color: white;
-  padding: 16px;
+  width: 220px;
   display: flex;
+  padding: 40px 0 80px 0;
   flex-direction: column;
-  height: 100vh;
-  border-right: 1px solid #ddd;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  border-right: 2px solid #ff6d00;
 }
 
 .notesWrapper {

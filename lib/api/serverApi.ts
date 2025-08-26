@@ -41,14 +41,14 @@ export const fetchNotes = async ({ search, page, tag }: FetchNotesProps) => {
   return response.data;
 };
 
-export const checkSession = async (): Promise<boolean> => {
+export const checkSession = async () => {
   const cookieStore = await cookies();
-  const { data } = await nextServer.get('/auth/session', {
+  const data = await nextServer.get('/auth/session', {
     headers: {
       Cookie: cookieStore.toString(),
     },
   });
-  return data.success;
+  return data;
 };
 
 export const fetchNoteById = async (id: string) => {
